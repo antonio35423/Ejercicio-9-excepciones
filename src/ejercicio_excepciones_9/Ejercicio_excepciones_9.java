@@ -6,7 +6,13 @@
 package ejercicio_excepciones_9;
 
 /**
- *
+ *  Alumno: Antonio Miguel Martín Plaza
+    C.F.G.S Desarrollo de Aplicaciones Multiplataforma
+    Módulo Profesional: Programación
+    Curso escolar: 2018/2019
+    Profesor: Francisco Jesús Delgado Almirón 
+    Instituto Tecnológico Poniente
+
  * @author Antonio
  */
 public class Ejercicio_excepciones_9 {
