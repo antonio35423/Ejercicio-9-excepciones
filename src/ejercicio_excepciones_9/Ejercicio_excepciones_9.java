@@ -17,7 +17,20 @@ public class Ejercicio_excepciones_9 {
     public static void main(String[] args) throws RangoException 
     {
         // TODO code application logic here
-      
+        Alumno a1 = new Alumno("Pedro");
+
+        try {
+            a1.pedirNotas();
+        } catch (Exception e) {
+            System.out.println("");
+        }
+
+        try {
+            a1.modificarNota(0, 0);
+        } catch (Exception e) {
+            System.out.println("ERROR");
+        }
+        a1.imprimirCalificaciones();
     }
 
 }
