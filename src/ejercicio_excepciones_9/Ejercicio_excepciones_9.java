@@ -14,8 +14,10 @@ public class Ejercicio_excepciones_9 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RangoException 
+    {
         // TODO code application logic here
+      
     }
-    
+
 }

@@ -12,64 +12,99 @@ import java.util.Scanner;
  *
  * @author Antonio
  */
-public class Alumno 
-{
- private static int num_asignaturas = 5;
- private String nombre;
- private ArrayList<Double> notas = new ArrayList<>(5);
+public class Alumno {
 
-    public Alumno() 
-    {
-        nombre ="";
+    private static int num_asignaturas = 5;
+    private String nombre;
+    private ArrayList<Double> notas = new ArrayList<>(5);
+
+    /**
+     * Constructor por defecto de la clase alumno
+     */
+    public Alumno() {
+        nombre = "";
     }
 
+    /**
+     * Constructor con parametros de la clase alumno
+     *
+     * @param nombre nombre del alumno
+     */
     public Alumno(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * Metodi get de nombre de la clase Alumno
+     *
+     * @return devuelve el nombre
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Metodo set de nombre de la clase Alumno
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
- 
-    public void pedirNotas() throws RangoException 
-    {
+
+    /**
+     * Metodo que pide las notas del alumno
+     *
+     * @throws RangoException Si la nota menor que 0 o mayor que 10 lanza la
+     * excepcion RangoException
+     */
+    public void pedirNotas() throws RangoException {
         Scanner teclado = new Scanner(System.in);
-        double n1, n2,n3,n4,n5;
-        System.out.println("Introduce la primera nota del alumno");
-        n1 = teclado.nextDouble();
-        System.out.println("Introduce la segunda nota del alumno");
-        n2 = teclado.nextDouble();
-        System.out.println("Introduce la tercera nota del alumno");
-        n3 = teclado.nextDouble();
-        System.out.println("Introduce la cuarta nota del alumno");
-        n4 = teclado.nextDouble();
-        System.out.println("Introduce la quinta nota del alumno");
-        n5 = teclado.nextDouble();
-        
-        if (n1<10&&n1>0||n2<10&&n2>0||n3<10&&n3>0||n4<10&&n4>0||n5<10&&n5>0) 
-        {
+        double n1 = 0;
+        for (int i = 0; i < num_asignaturas; i++) {
+            System.out.println("Introduce la  nota del alumno");
+            n1 = teclado.nextDouble();
+            notas.add(n1);
+        }
+
+        if (n1 < 0 || n1 > 10) {
             throw new RangoException("Error. Nota no válida");
         }
     }
-    public void modificarNota(int posicion, double nnota) throws RangoException,IndexOutOfBoundsException
-    {
+
+    /**
+     * Metodo que modifica las notas del alumno
+     *
+     * @param posicion es la posicion del array que se quiere cambiar
+     * @param nnota es la nota que sequiere cambiar
+     * @throws RangoException Si la nota menor que 0 o mayor que 10 lanza la
+     * excepcion RangoException
+     * @throws IndexOutOfBoundsException si la posicion es mayor a
+     * num_asignaturas se lanza la excepcion IndexOutOfBoundsException
+     */
+    public void modificarNota(int posicion, double nnota) throws RangoException, IndexOutOfBoundsException {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Introduce la posicion");
         posicion = teclado.nextInt();
-        
+
         notas.get(posicion);
         System.out.println("Introduce la nota");
         nnota = teclado.nextDouble();
-        if (nnota<10&&nnota>0) 
-        {
+        if (nnota < 0 && nnota > 10) {
             throw new RangoException("Error. Nota no válida");
         }
-        
+        if (posicion > num_asignaturas) {
+            throw new IndexOutOfBoundsException("Error.Posición no válida");
+        }
+
     }
-        
- 
+
+    /**
+     * Metodo que imprime las notas del alumno
+     */
+    public void imprimirCalificaciones() {
+        System.out.println("Nombre del Alumno:" + nombre + "Notas" + notas.toString());
+    }
+
+
 }
