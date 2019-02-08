@@ -50,10 +50,25 @@ public class Alumno
         System.out.println("Introduce la quinta nota del alumno");
         n5 = teclado.nextDouble();
         
-        if (n1>10&&n1<0||n2>10&&n2<0||n3>10&&n3<0||n4>10&&n4<0||n5>10&&n5<0) 
+        if (n1<10&&n1>0||n2<10&&n2>0||n3<10&&n3>0||n4<10&&n4>0||n5<10&&n5>0) 
         {
             throw new RangoException("Error. Nota no válida");
         }
+    }
+    public void modificarNota(int posicion, double nnota) throws RangoException,IndexOutOfBoundsException
+    {
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Introduce la posicion");
+        posicion = teclado.nextInt();
+        
+        notas.get(posicion);
+        System.out.println("Introduce la nota");
+        nnota = teclado.nextDouble();
+        if (nnota<10&&nnota>0) 
+        {
+            throw new RangoException("Error. Nota no válida");
+        }
+        
     }
         
  
